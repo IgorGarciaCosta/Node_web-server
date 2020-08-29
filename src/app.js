@@ -1,3 +1,4 @@
+const path = require('path')//it is a core node module
 const express = require('express')//load express library
 // const geocode = require('../utils/geocode')
 // const forecast = require('../utils/forecast')
@@ -5,28 +6,30 @@ const express = require('express')//load express library
 
 const app = express()
 
-// app.com
-app.get('', (req, res) => {
-    res.send('Hello express!')
-})
+const publicDirectoryPath = path.join(__dirname, '../public')
+app.use(express.static(publicDirectoryPath))
 
 // app.com/help
-app.get('/help', (req, res)=>{
-    res.send('Help Page!')
-})
+const helpPageRoute = path.join(__dirname, '../public/help')
+app.use(express.static(helpPageRoute))
 
 //app.com/about
-app.get('/about', (req, res)=>{
-    res.send('about page')
-})
+const aboutPageRoute = path.join(__dirname, '../public/about')
+app.use(express.static(aboutPageRoute))
+// app.get('/about', (req, res) => {
+//     res.send('<h1>About Page</h1>')
+// })
 
 //app.com/weather
-app.get('/weather', (req, res)=>{
-    res.send('weather Page')
+app.get('/weather', (req, res) => {
+    res.send({
+        forecast: 'aaaaa',
+        location: 'sssss'
+    })
 })
 
 
 
-app.listen(3000, ()=>{
+app.listen(3000, () => {
     console.log('Server is up on port 3000.')
 })
