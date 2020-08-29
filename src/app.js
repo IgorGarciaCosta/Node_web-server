@@ -16,9 +16,6 @@ app.use(express.static(helpPageRoute))
 //app.com/about
 const aboutPageRoute = path.join(__dirname, '../public/about')
 app.use(express.static(aboutPageRoute))
-// app.get('/about', (req, res) => {
-//     res.send('<h1>About Page</h1>')
-// })
 
 //app.com/weather
 app.get('/weather', (req, res) => {
