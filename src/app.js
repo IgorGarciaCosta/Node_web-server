@@ -5,8 +5,9 @@ const express = require('express')//load express library
 
 
 const app = express()
-
 const publicDirectoryPath = path.join(__dirname, '../public')
+
+app.set('view engine', 'hbs')//set up handleBars
 app.use(express.static(publicDirectoryPath))
 
 // app.com/help
@@ -16,6 +17,35 @@ app.use(express.static(helpPageRoute))
 //app.com/about
 const aboutPageRoute = path.join(__dirname, '../public/about')
 app.use(express.static(aboutPageRoute))
+
+
+//render index page
+app.get('', (req, res)=>{
+    //render one of handlebars templates
+    res.render('index', {
+        title: 'Weather App', 
+        name: 'Igor Garcia'
+    })
+
+})
+
+
+//render about page
+app.get('/about', (req, res)=>{
+    res.render('about', {
+        title:'About Page',
+        name:'Igor Garcia'
+    })
+})
+
+
+//render help page
+app.get('/help', (req, res)=>{
+    res.render('help', {
+        title:'Help page',
+        helpText:'hello, thats the help page!'
+    })
+})
 
 //app.com/weather
 app.get('/weather', (req, res) => {
