@@ -5,9 +5,16 @@ const express = require('express')//load express library
 
 
 const app = express()
-const publicDirectoryPath = path.join(__dirname, '../public')
 
-app.set('view engine', 'hbs')//set up handleBars
+//Define paths for Express config
+const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates')
+
+//Setup handleBars engine and views location
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+
+//Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 // app.com/help
@@ -20,10 +27,10 @@ app.use(express.static(aboutPageRoute))
 
 
 //render index page
-app.get('', (req, res)=>{
+app.get('', (req, res) => {
     //render one of handlebars templates
     res.render('index', {
-        title: 'Weather App', 
+        title: 'Weather App',
         name: 'Igor Garcia'
     })
 
@@ -31,19 +38,19 @@ app.get('', (req, res)=>{
 
 
 //render about page
-app.get('/about', (req, res)=>{
+app.get('/about', (req, res) => {
     res.render('about', {
-        title:'About Page',
-        name:'Igor Garcia'
+        title: 'About Page',
+        name: 'Igor Garcia'
     })
 })
 
 
 //render help page
-app.get('/help', (req, res)=>{
+app.get('/help', (req, res) => {
     res.render('help', {
-        title:'Help page',
-        helpText:'hello, thats the help page!'
+        title: 'Help page',
+        helpText: 'hello, thats the help page!'
     })
 })
 
