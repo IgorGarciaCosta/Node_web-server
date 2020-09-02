@@ -30,6 +30,8 @@ app.use(express.static(aboutPageRoute))
 
 
 //render index page
+//req:request object
+//res: reponse object
 app.get('', (req, res) => {
     //render one of handlebars templates
     res.render('index', {
@@ -65,6 +67,21 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: 404,
+        errorMessage: 'Help article page not found.',
+        name: 'Igor Garcia'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: 404,
+        errorMessage: 'Page not found.',
+        name: 'Igor Garcia'
+    })
+})
 
 
 app.listen(3000, () => {
