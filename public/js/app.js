@@ -4,7 +4,7 @@ const typedSearch = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 const messageTree = document.querySelector('#message-3')
-const weatherPictureSelectorString
+
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault() //prevent the browser to refresh the page
@@ -20,7 +20,7 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast
-                weatherPictureSelectorString = data.forecast
+                const weatherPictureSelectorString = data.forecast
                 if (weatherPictureSelectorString.includes('cloudy')) {
                     messageTree.textContent = "Nublado"
                 }
