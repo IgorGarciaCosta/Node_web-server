@@ -6,12 +6,14 @@ const messageTwo = document.querySelector('#message-2')
 const messageTree = document.querySelector('#message-3')
 
 
+
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault() //prevent the browser to refresh the page
 
     const typedLocation = typedSearch.value
     messageOne.textContent = 'Loading ...'
     messageTwo.textContent = ''
+    messageTree.textContent = ''
 
     fetch('/Weather?address=' + typedLocation).then((response) => {
         response.json().then((data) => {
@@ -21,10 +23,16 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast
                 const weatherPictureSelectorString = data.forecast
-                if (weatherPictureSelectorString.includes('cloudy')) {
-                    messageTree.textContent = "Nublado"
-                }
+                selectPicture(weatherPictureSelectorString)
             }
         })
     })
 })
+
+function selectPicture(weatherPictureSelectorString) {
+    if (weatherPictureSelectorString.includes('cloudy')) {
+        messageTree.textContent = "Nublado"
+    } else if (weatherPictureSelectorString.includes('sunny')) {
+        messageTree.textContent = "Ensolarado"
+    }
+}
