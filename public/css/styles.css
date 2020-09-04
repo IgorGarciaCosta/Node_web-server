@@ -7,10 +7,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: rgb(121, 148, 187);
 }
 
 .main-content {
     flex-grow: 1;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
 }
 
 .portrait {
@@ -19,7 +24,7 @@ body {
 }
 
 footer {
-    color: #888888;
+    color: white;
     border-top: 1px solid #eeeeee;
     margin-top: 16px;
     padding: 16px 0;
@@ -36,20 +41,26 @@ h1 {
 }
 
 header a {
-    color: #888888;
-    margin-right: 16px;
+    color: #5a5b86;
+    margin-right: 20px;
     text-decoration: none;
+    padding: 4px;
+    border: 1px solid #888888;
+    border-radius: 10px;
 }
 
 input {
     border: 1px solid #cccccc;
+    border-radius: 20px;
     padding: 8px;
 }
 
 button {
     cursor: pointer;
     border: 1px solid #888888;
+    border-radius: 20px;
     background: #888888;
     color: white;
     padding: 8px;
+    margin: 20px;
 }
