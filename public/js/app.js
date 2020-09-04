@@ -32,7 +32,7 @@ weatherForm.addEventListener('submit', (e) => {
 function selectPicture(weatherPictureSelectorString) {
     if (weatherPictureSelectorString.includes('cloudy')) {
         messageTree.textContent = "Nublado"
-    } else if (weatherPictureSelectorString.includes('sunny')) {
+    } else if (weatherPictureSelectorString.includes('Sunny')) {
         messageTree.textContent = "Ensolarado"
     }
 }
