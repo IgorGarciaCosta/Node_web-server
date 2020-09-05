@@ -11,9 +11,9 @@ weatherForm.addEventListener('submit', (e) => {
     e.preventDefault() //prevent the browser to refresh the page
 
     const typedLocation = typedSearch.value
-    messageOne.textContent = 'loading ...'
-        //messageTwo.textContent = ''
-        //messageTree.textContent = ''
+    messageOne.textContent = 'Loading ...'
+    messageTwo.textContent = ''
+    messageTree.textContent = ''
 
     fetch('/Weather?address=' + typedLocation).then((response) => {
         response.json().then((data) => {
@@ -31,7 +31,7 @@ weatherForm.addEventListener('submit', (e) => {
 
 function selectPicture(weatherPictureSelectorString) {
     if (weatherPictureSelectorString.includes('cloudy')) {
-        messageTree.get('./img/robot.png')
+        messageTree.get('./img/backWeather.png')
             //messageTree.textContent = "Nublado"
     } else if (weatherPictureSelectorString.includes('Sunny')) {
         messageTree.get('./img/backWeather.png')
