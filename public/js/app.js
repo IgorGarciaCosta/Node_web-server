@@ -11,9 +11,9 @@ weatherForm.addEventListener('submit', (e) => {
     e.preventDefault() //prevent the browser to refresh the page
 
     const typedLocation = typedSearch.value
-    messageOne.textContent = 'Loading ...'
-    messageTwo.textContent = ''
-    messageTree.textContent = ''
+    messageOne.textContent = 'loading ...'
+        //messageTwo.textContent = ''
+        //messageTree.textContent = ''
 
     fetch('/Weather?address=' + typedLocation).then((response) => {
         response.json().then((data) => {
