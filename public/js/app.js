@@ -3,8 +3,8 @@ const weatherForm = document.querySelector('form')
 const typedSearch = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
-const sunnyImage = document.getElementById("image-1")
-const rainyImage = document.getElementById("image-2")
+const image = document.getElementById("sunny")
+
 
 
 weatherForm.addEventListener('submit', (e) => {
@@ -13,8 +13,7 @@ weatherForm.addEventListener('submit', (e) => {
     const typedLocation = typedSearch.value
     messageOne.textContent = 'Loading ...'
     messageTwo.textContent = ''
-    sunnyImage.src = "";
-    rainyImage.src = "";
+    image.src = "/img/transparent.jpg";
 
     fetch('/Weather?address=' + typedLocation).then((response) => {
         response.json().then((data) => {
@@ -32,8 +31,16 @@ weatherForm.addEventListener('submit', (e) => {
 
 function selectPicture(weatherPictureSelectorString) {
     if (weatherPictureSelectorString.includes('cloudy')) {
-        rainyImage.src = "img/backWeatherRainy.png";
+        image.class = "portrait";
+        image.src = "img/backWeatherCloudy.png";
     } else if (weatherPictureSelectorString.includes('Sunny')) {
-        sunnyImage.src = "img/backWeather.png";
+        image.class = "portrait";
+        image.src = "img/backWeather.png";
+    } else if (weatherPictureSelectorString.includes('Clear')) {
+        image.class = "portrait";
+        image.src = "img/backWeatherClear.png";
+    } else if (weatherPictureSelectorString.includes('rain')) {
+        image.class = "portrait";
+        image.src = "img/backWeatherRainy.png";
     }
 }

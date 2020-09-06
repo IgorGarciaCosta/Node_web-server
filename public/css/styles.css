@@ -21,7 +21,7 @@ body {
 
 .portrait {
     width: 250px;
-    height: 250;
+    height: 250px;
     border-radius: 10%;
 }
 
@@ -65,4 +65,13 @@ button {
     color: white;
     padding: 8px;
     margin: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
