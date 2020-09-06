@@ -1,13 +1,14 @@
 body {
     color: #333333;
-    font-family: arial;
+    font-family: 'Quicksand', sans-serif;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgb(121, 148, 187);
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
 }
 
 .main-content {
@@ -21,6 +22,7 @@ body {
 .portrait {
     width: 250px;
     height: 250;
+    border-radius: 10%;
 }
 
 footer {

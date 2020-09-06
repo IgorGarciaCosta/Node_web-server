@@ -3,10 +3,8 @@ const weatherForm = document.querySelector('form')
 const typedSearch = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
-const messageTree = document.querySelector('#image-1')
-const messageFour = document.querySelector('#image-2')
-
-
+const sunnyImage = document.getElementById("image-1")
+const rainyImage = document.getElementById("image-2")
 
 
 weatherForm.addEventListener('submit', (e) => {
@@ -15,6 +13,8 @@ weatherForm.addEventListener('submit', (e) => {
     const typedLocation = typedSearch.value
     messageOne.textContent = 'Loading ...'
     messageTwo.textContent = ''
+    sunnyImage.src = "";
+    rainyImage.src = "";
 
     fetch('/Weather?address=' + typedLocation).then((response) => {
         response.json().then((data) => {
@@ -32,8 +32,8 @@ weatherForm.addEventListener('submit', (e) => {
 
 function selectPicture(weatherPictureSelectorString) {
     if (weatherPictureSelectorString.includes('cloudy')) {
-        messageFour.imageContent = "/img/backWeatherRainy.png"
+        rainyImage.src = "img/backWeatherRainy.png";
     } else if (weatherPictureSelectorString.includes('Sunny')) {
-        messageTree.imageContent = "/img/backWeather.png"
+        sunnyImage.src = "img/backWeather.png";
     }
 }
